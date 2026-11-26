@@ -1,0 +1,27 @@
+{
+  "pages": [
+    "pages/menu/menu",
+    "pages/cart/cart",
+    "pages/checkout/checkout",
+    "pages/orders/orders"
+  ],
+  "window": {
+    "navigationBarTitleText": "食光外卖",
+    "navigationBarBackgroundColor": "#ff6b35",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#f4f5f7"
+  },
+  "tabBar": {
+    "color": "#6b7280",
+    "selectedColor": "#ff6b35",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      { "pagePath": "pages/menu/menu", "text": "点餐" },
+      { "pagePath": "pages/cart/cart", "text": "购物车" },
+      { "pagePath": "pages/orders/orders", "text": "订单" }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

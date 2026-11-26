@@ -1,0 +1,71 @@
+.checkout { padding: 20rpx 20rpx 220rpx; }
+.card { margin: 0 0 20rpx; }
+.head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16rpx;
+}
+.label { font-size: 27rpx; font-weight: 800; }
+.edit { font-size: 24rpx; color: #ff6b35; }
+.count { font-size: 22rpx; color: #9ca3af; }
+
+.addr-line { font-size: 30rpx; font-weight: 700; }
+.consignee { margin-right: 16rpx; }
+.phone { font-size: 25rpx; color: #8a8f99; font-weight: 400; }
+.addr-detail { font-size: 24rpx; color: #6b7280; margin-top: 10rpx; line-height: 1.6; }
+
+.form { display: flex; flex-direction: column; gap: 14rpx; }
+.field {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  background: #fafbfc;
+  border-radius: 16rpx;
+  padding: 18rpx 20rpx;
+}
+.f-label { font-size: 24rpx; color: #8a8f99; width: 112rpx; flex: none; }
+.f-input { flex: 1; font-size: 28rpx; }
+.save { margin-top: 8rpx; }
+
+.g-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16rpx;
+  padding: 16rpx 0;
+  border-bottom: 1rpx dashed #f0edf0;
+  font-size: 26rpx;
+}
+.g-name { flex: 1; min-width: 0; }
+.flavor { color: #9ca3af; font-size: 22rpx; margin-left: 8rpx; }
+.g-right { color: #8a8f99; font-size: 24rpx; white-space: nowrap; }
+.g-amount { color: #1f2430; margin-left: 14rpx; }
+.fee { display: flex; justify-content: space-between; font-size: 26rpx; color: #6b7280; padding-top: 18rpx; }
+.fee.total { color: #1f2430; font-weight: 800; }
+.sum { color: #ff6b35; font-size: 36rpx; }
+
+.remark {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 120rpx;
+  background: #fafbfc;
+  border-radius: 16rpx;
+  padding: 18rpx 20rpx;
+  font-size: 26rpx;
+}
+
+.paybar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18rpx 28rpx;
+  background: #fff;
+  box-shadow: 0 -6rpx 24rpx rgba(0, 0, 0, 0.06);
+}
+.pay-label { font-size: 22rpx; color: #9ca3af; }
+.pay-value { font-size: 40rpx; font-weight: 800; }
+.pay { margin: 0; padding: 0 36rpx; }

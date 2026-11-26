@@ -1,0 +1,40 @@
+<view class="cart">
+  <view class="head">
+    <text class="title">购物车</text>
+    <text class="clean" wx:if="{{rows.length}}" bindtap="clean">清空</text>
+  </view>
+
+  <block wx:if="{{rows.length}}">
+    <view class="card row" wx:for="{{rows}}" wx:key="id">
+      <view class="thumb">
+        <image wx:if="{{item.image && !broken[item.id]}}" src="{{item.image}}" mode="aspectFill" class="thumb-pic" data-id="{{item.id}}" binderror="imgError" />
+        <text wx:else class="thumb-char">{{item.name[0]}}</text>
+      </view>
+      <view class="main">
+        <view class="name">{{item.name}}</view>
+        <view class="flavor" wx:if="{{item.dishFlavor}}">{{item.dishFlavor}}</view>
+        <view class="foot">
+          <view class="price">¥{{item.priceText}}</view>
+          <view class="stepper">
+            <view class="step minus" data-id="{{item.id}}" data-dish="{{item.dishId}}" data-setmeal="{{item.setmealId}}" bindtap="sub">−</view>
+            <text class="num">{{item.number}}</text>
+            <view class="step plus" data-id="{{item.id}}" data-dish="{{item.dishId}}" data-setmeal="{{item.setmealId}}" bindtap="add">＋</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="bar">
+      <view>
+        <view class="sum-label">合计</view>
+        <view class="sum">¥{{amountText}}</view>
+      </view>
+      <button class="go" bindtap="goCheckout">去结算（{{count}}）</button>
+    </view>
+  </block>
+
+  <view wx:else class="empty">
+    <text>购物车还是空的，去点两份招牌菜吧</text>
+    <button class="btn-ghost back" bindtap="goMenu">去点餐</button>
+  </view>
+</view>

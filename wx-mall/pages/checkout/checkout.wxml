@@ -1,0 +1,61 @@
+<view class="checkout">
+  <view class="card">
+    <view class="head">
+      <text class="label">配送地址</text>
+      <text class="edit" wx:if="{{address && !editMode}}" bindtap="toggleEdit">修改</text>
+    </view>
+
+    <block wx:if="{{address && !editMode}}">
+      <view class="addr-line">
+        <text class="consignee">{{address.consignee}}</text>
+        <text class="phone">{{address.phone}}</text>
+      </view>
+      <view class="addr-detail">{{address.provinceName}}{{address.cityName}}{{address.districtName}}{{address.detail}}</view>
+    </block>
+
+    <view wx:else class="form">
+      <view class="field">
+        <text class="f-label">收货人</text>
+        <input class="f-input" value="{{form.consignee}}" data-key="consignee" bindinput="onInput" placeholder="姓名" />
+      </view>
+      <view class="field">
+        <text class="f-label">手机号</text>
+        <input class="f-input" type="number" maxlength="11" value="{{form.phone}}" data-key="phone" bindinput="onInput" placeholder="11 位手机号" />
+      </view>
+      <view class="field">
+        <text class="f-label">详细地址</text>
+        <input class="f-input" value="{{form.detail}}" data-key="detail" bindinput="onInput" placeholder="学校 / 楼栋 / 门牌" />
+      </view>
+      <button class="btn-primary save" bindtap="saveAddress">保存并使用</button>
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="head">
+      <text class="label">商品清单</text>
+      <text class="count">共 {{count}} 件</text>
+    </view>
+    <view class="g-row" wx:for="{{items}}" wx:key="id">
+      <view class="g-name">
+        {{item.name}}
+        <text class="flavor" wx:if="{{item.dishFlavor}}">{{item.dishFlavor}}</text>
+      </view>
+      <view class="g-right">x{{item.number}}<text class="g-amount">¥{{item.lineText}}</text></view>
+    </view>
+    <view class="fee"><text>打包费</text><text>¥0.00</text></view>
+    <view class="fee total"><text>合计</text><text class="sum">¥{{amountText}}</text></view>
+  </view>
+
+  <view class="card">
+    <view class="head"><text class="label">订单备注</text></view>
+    <textarea class="remark" value="{{remark}}" bindinput="onRemark" maxlength="100" placeholder="口味、餐具等要求（选填）" />
+  </view>
+
+  <view class="paybar">
+    <view>
+      <view class="pay-label">待支付</view>
+      <view class="pay-value">¥{{amountText}}</view>
+    </view>
+    <button class="btn-primary pay" bindtap="submit" disabled="{{submitting}}">{{submitting ? '提交中…' : '模拟支付并下单'}}</button>
+  </view>
+</view>

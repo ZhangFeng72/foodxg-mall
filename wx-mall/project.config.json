@@ -1,0 +1,21 @@
+{
+  "description": "食光外卖 · 点餐小程序（配套 sky-take-out 后端）",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "minified": true,
+    "newFeature": true,
+    "bigPackageSizeSupport": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "3.5.5",
+  "appid": "touristappid",
+  "projectname": "wx-mall",
+  "miniprogramRoot": "./"
+}

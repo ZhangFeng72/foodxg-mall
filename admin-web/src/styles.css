@@ -1,0 +1,86 @@
+:root {
+  --brand: #ff6b35;
+  --brand-dark: #e25420;
+  --brand-soft: #fff2ec;
+  --ink: #1f2430;
+  --muted: #6b7280;
+  --line: #eceef2;
+  --bg: #f5f6f8;
+  --card: #ffffff;
+  --radius: 14px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei', 'PingFang SC', sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  padding: 20px 24px 28px;
+}
+
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+.page-sub {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 6px 0 0;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  overflow-x: auto;
+}
+
+/* 窄屏下表格横向滚动，避免操作列盖住数据列 */
+.card .el-table { min-width: 960px; }
+
+.card + .card { margin-top: 16px; }
+
+.toolbar {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.el-button--primary {
+  --el-button-bg-color: var(--brand);
+  --el-button-border-color: var(--brand);
+  --el-button-hover-bg-color: var(--brand-dark);
+  --el-button-hover-border-color: var(--brand-dark);
+  --el-button-active-bg-color: var(--brand-dark);
+}
+
+.el-radio-button__original-radio:checked + .el-radio-button__inner,
+.el-tabs__item.is-active { color: var(--brand); }
+
+.el-table th.el-table__cell { background: #fafbfc !important; color: #4b5563; font-weight: 600; }
+
+.mono { font-family: 'JetBrains Mono', Consolas, monospace; }
+
+.price { color: var(--brand); font-weight: 700; }

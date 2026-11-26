@@ -1,0 +1,78 @@
+<view class="page">
+  <!-- 店铺头 -->
+  <view class="shop">
+    <view class="logo">食</view>
+    <view class="shop-info">
+      <view class="shop-name">食光外卖</view>
+      <view class="shop-tags">
+        <text class="tag">{{shopOpen ? '营业中' : '已打烊'}}</text>
+        <text class="tag-light">约 30 分钟送达</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 主体：左分类 右菜品 -->
+  <view class="body">
+    <scroll-view class="cats" scroll-y>
+      <view
+        wx:for="{{categories}}"
+        wx:key="id"
+        class="cat {{activeId === item.id ? 'cat-on' : ''}}"
+        data-id="{{item.id}}"
+        bindtap="switchCat"
+      >{{item.name}}</view>
+    </scroll-view>
+
+    <scroll-view class="goods" scroll-y>
+      <view class="goods-head">
+        <text class="goods-title">{{activeName}}</text>
+        <text class="goods-count">{{items.length}} 款</text>
+      </view>
+
+      <block wx:if="{{items.length}}">
+        <view class="dish" wx:for="{{items}}" wx:key="id">
+          <view class="dish-img">
+            <image
+              wx:if="{{item.image && !broken[item.id]}}"
+              src="{{item.image}}"
+              mode="aspectFill"
+              class="dish-pic"
+              data-id="{{item.id}}"
+              binderror="imgError"
+            />
+            <text wx:else class="dish-char">{{item.name[0]}}</text>
+          </view>
+
+          <view class="dish-main">
+            <view class="dish-name">{{item.name}}</view>
+            <view class="dish-desc" wx:if="{{item.description}}">{{item.description}}</view>
+            <view class="dish-foot">
+              <view class="dish-price"><text class="yuan">¥</text>{{item.priceText}}</view>
+              <view class="stepper">
+                <view class="step minus" wx:if="{{countMap[item.id] > 0}}" data-id="{{item.id}}" bindtap="sub">−</view>
+                <text class="num" wx:if="{{countMap[item.id] > 0}}">{{countMap[item.id]}}</text>
+                <view class="step plus" data-id="{{item.id}}" bindtap="add">＋</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+
+      <view wx:else class="empty">
+        <text>这个分类还没有上架商品</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 底部结算条 -->
+  <view class="cartbar" wx:if="{{cartCount > 0}}">
+    <view class="cart-left" bindtap="goCart">
+      <view class="cart-icon">🛒<text class="badge">{{cartCount}}</text></view>
+      <view>
+        <view class="cart-amount">¥{{cartAmountText}}</view>
+        <view class="cart-hint">另需打包费 ¥0.00</view>
+      </view>
+    </view>
+    <button class="go" disabled="{{!shopOpen}}" bindtap="goCheckout">{{shopOpen ? '去结算' : '已打烊'}}</button>
+  </view>
+</view>

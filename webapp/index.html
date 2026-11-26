@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>食光外卖 · 信息管理系统</title>
+    <style>
+      :root { --brand: #ff6b35; --ink: #1f2430; }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0; min-height: 100vh; display: grid; place-items: center; padding: 24px;
+        font-family: -apple-system, 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        background: radial-gradient(900px 500px at 20% 10%, #ffd9c7, transparent 60%),
+                    linear-gradient(160deg, #fff7f2, #ffefe6 60%, #ffe2d2);
+        color: var(--ink);
+      }
+      .wrap { width: min(860px, 100%); }
+      .brand { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+      .mark { width: 46px; height: 46px; border-radius: 14px; background: linear-gradient(135deg, #ff8a4c, #f2542d); color: #fff; display: grid; place-items: center; font-weight: 800; font-size: 20px; }
+      h1 { font-size: 26px; margin: 0; }
+      .sub { color: #7a7f88; font-size: 13px; margin: 4px 0 26px; }
+      .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+      a.card {
+        display: block; text-decoration: none; color: inherit; background: #fff;
+        border: 1px solid #f0e5df; border-radius: 18px; padding: 22px;
+        box-shadow: 0 10px 30px rgba(190, 90, 40, 0.08);
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+      }
+      a.card:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(190, 90, 40, 0.14); }
+      .card h2 { font-size: 17px; margin: 0 0 6px; }
+      .card p { margin: 0 0 14px; color: #7a7f88; font-size: 13px; line-height: 1.7; }
+      .go { font-size: 13px; font-weight: 700; color: var(--brand); }
+      .tag { display: inline-block; font-size: 11px; padding: 3px 9px; border-radius: 999px; background: #fff2ec; color: #e25420; margin-bottom: 10px; }
+      .foot { margin-top: 22px; font-size: 12px; color: #9aa1ab; line-height: 1.8; }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="brand">
+        <div class="mark">食</div>
+        <h1>食光外卖 · 信息管理系统</h1>
+      </div>
+      <p class="sub">Spring Boot + MySQL + Redis 后端，Vue3 管理后台，Vue3 点餐前端与微信小程序共用同一套接口。</p>
+
+      <div class="cards">
+        <a class="card" href="/admin-ui/index.html">
+          <span class="tag">PC 管理端</span>
+          <h2>管理后台</h2>
+          <p>订单接单派送、菜品套餐上下架、分类与员工管理、营业状态。</p>
+          <div class="go">进入后台 →</div>
+        </a>
+        <a class="card" href="/h5/index.html">
+          <span class="tag">手机点餐</span>
+          <h2>用户点餐（H5）</h2>
+          <p>按分类浏览菜单、加入购物车、模拟支付下单、查看订单进度。</p>
+          <div class="go">打开点餐页 →</div>
+        </a>
+        <a class="card" href="/doc.html">
+          <span class="tag">接口文档</span>
+          <h2>Knife4j 接口文档</h2>
+          <p>管理端与用户端全部接口的在线调试页面。</p>
+          <div class="go">查看接口 →</div>
+        </a>
+      </div>
+
+      <p class="foot">
+        后端 http://127.0.0.1:8080 ｜ MySQL 127.0.0.1:3307 ｜ Redis 127.0.0.1:6379<br />
+        管理端账号 admin / 123456
+      </p>
+    </div>
+  </body>
+</html>
